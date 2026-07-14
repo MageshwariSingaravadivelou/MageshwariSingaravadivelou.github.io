@@ -11,7 +11,7 @@ export default function ExperiencePage() {
     <Section className="pt-28">
       <SectionHeading
         eyebrow="Experience"
-        title="Challenges owned, solutions shipped"
+        title="Problems Owned, Systems Shipped"
         description="Framed as the business problem, the system I built to solve it, and the impact — not a list of responsibilities."
       />
 
