@@ -44,7 +44,7 @@ export default function AboutPage() {
         description="Not a resume — how I think about building data systems that teams and businesses depend on."
       />
 
-      <Reveal className="mb-14 max-w-3xl space-y-4 text-lg leading-relaxed text-fg-muted">
+      <Reveal className="mb-14 space-y-4 text-lg leading-relaxed text-fg-muted">
         <p>
           I&apos;m a Senior Data Engineer who has spent the last six years turning
           messy, high-volume marketing data into platforms that global teams trust
