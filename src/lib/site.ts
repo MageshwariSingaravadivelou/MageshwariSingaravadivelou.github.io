@@ -666,6 +666,60 @@ export const caseStudies: CaseStudy[] = [
       "Generalize the connector pattern to onboard more data sources.",
     ],
   },
+  {
+    slug: "social-competitive-media-analytics",
+    title: "Social & Competitive Media Analytics at Scale",
+    executiveSummary:
+      "Designed and delivered a repeatable pipeline that turned massive, noisy public conversation across social and video platforms into decision-ready signal for a marketing organization — multi-source data extraction, NLP (sentiment + named-entity recognition), and executive dashboards. (Client and specific findings intentionally omitted.)",
+    businessProblem:
+      "Marketing and product teams needed to understand consumer sentiment and channel dynamics from huge volumes of unstructured public conversation — but the raw data was scattered across platforms, noisy, and read by hand.",
+    existingSystem:
+      "Ad-hoc, manual data pulls with no repeatable pipeline; sentiment and themes interpreted manually, so analysis was slow and hard to reproduce.",
+    painPoints: [
+      "Heterogeneous platform APIs, each with different formats and rate limits.",
+      "Spam and noise drowning out genuine signal.",
+      "Manual, non-repeatable analysis with slow turnaround.",
+    ],
+    targetArchitecture:
+      "A three-stage pipeline: extraction (per-platform Python collectors for social and video-platform public data) → processing (cleansing, spam filtering, sentiment classification, and NER to structure free text) → presentation (Power BI dashboards for stakeholder self-serve).",
+    designDecisions: [
+      {
+        decision: "Build repeatable extraction pipelines instead of one-off pulls.",
+        rationale: "Reproducibility and turnaround matter more than a single heroic analysis.",
+      },
+      {
+        decision: "Use NLP models (sentiment, NER) to structure unstructured text.",
+        rationale: "The value is in turning free-form conversation into fields teams can filter and chart.",
+      },
+    ],
+    tradeoffs: [
+      "Model accuracy vs. speed of delivery.",
+      "Breadth of sources vs. the maintenance cost of more collectors.",
+    ],
+    implementation:
+      "Python extraction across platforms, ML models for spam/ham, sentiment, and named-entity recognition, automated processing steps, and Power BI dashboards surfacing the structured results.",
+    challenges: [
+      "Normalizing across platform APIs and formats.",
+      "Separating signal from spam before analysis.",
+      "Keeping the whole flow repeatable rather than one-off.",
+    ],
+    scaling:
+      "Parameterized collectors per platform and batch processing let the pipeline take on new sources without a rewrite.",
+    monitoring:
+      "Validation of extracted volumes and QA on model outputs to keep the downstream analysis trustworthy.",
+    security:
+      "Operates on public data only, extracted through official platform APIs.",
+    costOptimization:
+      "An in-house extraction + NLP pipeline avoided licensed social-listening tools that run $25K–$100K/year.",
+    lessons: [
+      "Structuring unstructured text (sentiment + NER) is where most of the analytical value is created.",
+      "Repeatable extraction beats heroic one-off data pulls every time.",
+    ],
+    futureImprovements: [
+      "Transformer-based sentiment for higher accuracy.",
+      "Automated trend/anomaly detection on top of the structured signal.",
+    ],
+  },
 ];
 
 export const skillGroups: { category: string; skills: { name: string; level: number }[] }[] = [
