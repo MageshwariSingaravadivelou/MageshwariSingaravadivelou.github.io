@@ -71,15 +71,13 @@ export default function AboutPage() {
           return (
             <Reveal key={p.title} delayIndex={i}>
               <Card hover>
-                <div className="flex items-start gap-4">
+                <div className="mb-3 flex items-center gap-3">
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent/15 text-accent ring-1 ring-accent/30">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <div>
-                    <h3 className="text-lg font-semibold text-fg">{p.title}</h3>
-                    <p className="mt-2 leading-relaxed text-fg-muted">{p.body}</p>
-                  </div>
+                  <h3 className="text-lg font-semibold text-fg">{p.title}</h3>
                 </div>
+                <p className="leading-relaxed text-fg-muted">{p.body}</p>
               </Card>
             </Reveal>
           );
