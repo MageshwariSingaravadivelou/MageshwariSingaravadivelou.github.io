@@ -318,6 +318,119 @@ export const projects: Project[] = [
     ],
     featured: false,
   },
+  {
+    slug: "powerbi-dashboard-refresh-automation",
+    title: "PowerBI Dashboard Refresh Automation on Azure",
+    tagline:
+      "Event-driven refresh — a blob change flows automatically through Logic Apps → ADF → Databricks → Power BI, with no manual steps and no local files.",
+    problem:
+      "Managing a large set of Power BI dashboards meant repetitive manual refreshes — error-prone, time-consuming, and dependent on files saved locally on someone's machine.",
+    businessContext:
+      "Teams owning many dashboards were spending real time every day on refresh mechanics. A change in the underlying data should reach the dashboard on its own, not wait for a person.",
+    challenges: [
+      "Trigger a refresh from a data change, not a clock.",
+      "Orchestrate a multi-service flow reliably end-to-end.",
+      "Refresh Power BI programmatically and keep historical files.",
+    ],
+    architecture:
+      "Source data lands in Azure Blob Storage. Logic Apps fires on blob add/modify and triggers an Azure Data Factory pipeline, which runs a Databricks notebook to clean and update the table (with room for ML on top). Power BI is then refreshed via its REST API — a fully event-driven chain.",
+    stack: [
+      "Azure Blob Storage",
+      "Azure Logic Apps",
+      "Azure Data Factory",
+      "Azure Databricks",
+      "Power BI REST API",
+      "Python",
+    ],
+    contributions: [
+      "Owned and implemented the solution end-to-end; designed the event-driven architecture and selected the services.",
+      "Built the Logic Apps trigger, the ADF pipeline, the Databricks notebook, and the Power BI API refresh.",
+      "Authored a public blog documenting the approach for other engineers.",
+    ],
+    decisions: [
+      "Chose event-driven (Logic Apps on blob change) over a scheduled refresh so the data drives the update — no stale windows, no wasted runs.",
+      "Used Databricks as the connective + cleaning + optional-ML layer rather than a bespoke script host.",
+      "Leaned on consumption-priced managed services (Logic Apps free tier, low ADF/blob cost) to keep it cheap to run.",
+    ],
+    performance: [
+      "Eliminated manual refresh effort and the dependency on locally saved files.",
+      "Reduced manual errors and preserved historical files automatically.",
+    ],
+    outcomes: [
+      "Hands-off, always-fresh dashboards on a low-cost serverless footprint.",
+      "Reusable pattern shared with the wider team via an internal blog.",
+    ],
+    lessons: [
+      "Event-driven beats scheduled whenever data freshness is the goal.",
+      "Half of a clean cloud design is choosing the right managed services for each step.",
+    ],
+    featured: false,
+  },
+];
+
+export type BlogPost = {
+  slug: string;
+  title: string;
+  date: string;
+  readingTime: string;
+  summary: string;
+  tags: string[];
+  sections: { heading?: string; body: string[] }[];
+  reference?: { label: string; href: string };
+};
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "powerbi-dashboard-refresh-automation",
+    title: "PowerBI Dashboard Refresh Automation using Azure",
+    date: "2023",
+    readingTime: "5 min read",
+    summary:
+      "How to make Power BI dashboards refresh themselves — an event-driven pipeline across Azure Blob Storage, Logic Apps, Data Factory, and Databricks that removes manual refreshes entirely.",
+    tags: ["Azure", "Power BI", "Databricks", "Data Factory", "Automation"],
+    sections: [
+      {
+        body: [
+          "Manual dashboard refreshes are the kind of work that looks harmless and quietly eats your week. One or two dashboards are fine; a portfolio of them, refreshed by hand every day from files saved on someone's laptop, is a standing source of delay and mistakes. I wanted the opposite: a dashboard that updates itself the moment its data changes, with nothing living on a local machine.",
+          "This post walks through the event-driven pipeline I built on Azure to do exactly that — and, more usefully, the reasoning behind each choice.",
+        ],
+      },
+      {
+        heading: "Why event-driven instead of a schedule",
+        body: [
+          "The default answer to \"refresh my dashboard\" is a scheduled job. Schedules are simple, but they're wrong in two directions at once: they run when nothing has changed (wasted compute) and they lag when something changes right after a run (stale data). Tying the refresh to the data event removes both problems — the pipeline does work exactly when there is work to do.",
+          "So the design goal became: a new or modified file should propagate all the way to Power BI on its own.",
+        ],
+      },
+      {
+        heading: "The architecture",
+        body: [
+          "The chain has four Azure services, each owning one job. Source data lands in Azure Blob Storage. A Logic App watches the container and fires on any add or modify. That event kicks off an Azure Data Factory pipeline, which runs a Databricks notebook to clean the data and update the backing table. Because the Power BI dataset points at Databricks, the last step is a call to the Power BI REST API to refresh it.",
+          "Blob change → Logic Apps → Data Factory → Databricks notebook → Power BI API. No scheduler, no manual export, no local files.",
+        ],
+      },
+      {
+        heading: "Implementation notes",
+        body: [
+          "Storage — Blob Storage is the entry point. It's cheap, tiered, and doubles as a lake for downstream analytics, so it fits both the ingestion and the long-term-retention need without a second system.",
+          "Databricks — this is where the data actually becomes trustworthy: cleaning, shaping, and (optionally) ML sit in a notebook that Data Factory invokes. Keeping the logic in Databricks rather than a bespoke script host means it scales and stays observable.",
+          "Data Factory — the orchestrator: linked services connect storage and Databricks, and a parameterized pipeline invokes the notebook, so onboarding a new dataset is configuration, not new code.",
+          "Logic Apps & Power BI — Logic Apps is the event glue that starts the chain; the Power BI REST API is the finish line, turning \"data changed\" into \"dashboard refreshed\" with zero human steps.",
+        ],
+      },
+      {
+        heading: "What it bought us",
+        body: [
+          "The manual refresh disappeared, and with it the errors and the laptop-file dependency. Historical files are retained automatically, the whole thing runs on consumption-priced services (Logic Apps' free action tier, low ADF and blob cost), and the pattern is reusable — onboarding another dashboard is mostly wiring, not rebuilding.",
+          "The broader lesson generalizes past Power BI: when freshness is the goal, let the data trigger the work, and let each managed service do the one thing it's best at.",
+        ],
+      },
+    ],
+    reference: {
+      label: "Azure Docs — Transform data using a Databricks notebook",
+      href: "https://learn.microsoft.com/en-us/azure/data-factory/transform-data-using-databricks-notebook",
+    },
+  },
 ];
 
 export type CaseStudy = {

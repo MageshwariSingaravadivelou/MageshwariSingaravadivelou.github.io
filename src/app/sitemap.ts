@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { site, nav, projects, caseStudies } from "@/lib/site";
+import { site, nav, projects, caseStudies, blogPosts } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -16,5 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${site.url}/case-studies/${c.slug}`,
     lastModified: new Date(),
   }));
-  return [...staticRoutes, ...projectRoutes, ...caseRoutes];
+  const blogRoutes = blogPosts.map((b) => ({
+    url: `${site.url}/blog/${b.slug}`,
+    lastModified: new Date(),
+  }));
+  return [...staticRoutes, ...projectRoutes, ...caseRoutes, ...blogRoutes];
 }
