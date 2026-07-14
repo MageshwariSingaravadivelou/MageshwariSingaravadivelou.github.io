@@ -14,7 +14,7 @@ export const site = {
   tagline:
     "I build and modernize cloud-native data platforms — migrations, governance, and pipeline optimization that cut cost and runtime while keeping data trustworthy.",
   location: "Chennai, India",
-  email: "mageshwari.singaravadivelou@latentview.com", // REPLACE if you prefer a personal address
+  email: "singaravadiveloumage@gmail.com",
   github: "https://github.com/MageshwariSingaravadivelou",
   linkedin: "https://www.linkedin.com/in/mageshwari-singaravadivelou",
   resumeUrl: "/resume.pdf", // add resume.pdf to /public
