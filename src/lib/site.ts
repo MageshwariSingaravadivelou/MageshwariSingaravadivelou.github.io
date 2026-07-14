@@ -70,7 +70,7 @@ export const experience: Experience[] = [
       "Own data engineering for a global enterprise's digital-experience marketing data platform, leading a 10+ member team and driving the migration, governance, and optimization roadmap that keeps executive marketing analytics fast and trustworthy.",
     highlights: [
       "Led the Snowflake → Databricks migration via Azure Data Factory, cutting average end-to-end execution ~87.5% (largest dataset 144 → 18 min) and retiring the legacy SSIS / Tidal / SnapLogic toolchain.",
-      "Optimized the REPLICN_SF pipelines for ~$10,074/year cost savings and ~2,597 hours/year of runtime reduction; cut a core production workflow from 10 hrs to 3 hrs (~$9,700/year).",
+      "Optimized replication pipelines for ~$10,074/year cost savings and ~2,597 hours/year of runtime reduction; cut a core production workflow from 10 hrs to 3 hrs (~$9,700/year).",
       "Architected 'Sandbox Duster', a Flask + Databricks governance app that decommissioned 437 tables, reclaimed ~5 TB, and saved ~$9,216/year while standardizing data-retention policy.",
       "Built automated data-quality and validation frameworks (marketing-data validation dashboards, Phases 1–2) delivering 99.5% data reliability, and drove the Unity Catalog cutover for the platform.",
       "Consistently rated DEL2 with client VoC scores of 8–10; mentored the team to certifications and interview panels across Bangalore/Delhi.",
@@ -416,7 +416,7 @@ export type BlogPost = {
   readingTime: string;
   summary: string;
   tags: string[];
-  sections: { heading?: string; body: string[] }[];
+  sections: { heading?: string; body: string[]; image?: string; imageAlt?: string }[];
   reference?: { label: string; href: string };
 };
 
@@ -449,6 +449,9 @@ export const blogPosts: BlogPost[] = [
           "The chain has four Azure services, each owning one job. Source data lands in Azure Blob Storage. A Logic App watches the container and fires on any add or modify. That event kicks off an Azure Data Factory pipeline, which runs a Databricks notebook to clean the data and update the backing table. Because the Power BI dataset points at Databricks, the last step is a call to the Power BI REST API to refresh it.",
           "Blob change → Logic Apps → Data Factory → Databricks notebook → Power BI API. No scheduler, no manual export, no local files.",
         ],
+        image: "/images/dashboard-refresh-architecture.png",
+        imageAlt:
+          "Architecture: Blob Storage triggers Logic Apps, which runs an Azure Data Factory pipeline that updates a Databricks table via notebook; Power BI refreshes via API.",
       },
       {
         heading: "Implementation notes",
@@ -492,6 +495,7 @@ export type CaseStudy = {
   costOptimization: string;
   lessons: string[];
   futureImprovements: string[];
+  flow?: string[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -542,7 +546,7 @@ export const caseStudies: CaseStudy[] = [
     security:
       "Unity Catalog centralizes access control and lineage; pipeline credentials moved into Azure Key Vault.",
     costOptimization:
-      "Retiring three legacy tools removed licensing/maintenance overhead; faster runs reduced compute time. Related workstreams saved ~$10,074/year (REPLICN_SF) and ~$9,700/year (production workflow, 10 → 3 hrs).",
+      "Retiring three legacy tools removed licensing/maintenance overhead; faster runs reduced compute time. Related workstreams saved ~$10,074/year (replication pipelines) and ~$9,700/year (production workflow, 10 → 3 hrs).",
     lessons: [
       "The cheapest performance win is removing hops, not tuning them.",
       "Parity validation is what turns a risky migration into a routine cutover.",
@@ -665,6 +669,7 @@ export const caseStudies: CaseStudy[] = [
       "Alerting on failed refreshes.",
       "Generalize the connector pattern to onboard more data sources.",
     ],
+    flow: ["Blob Storage", "Logic Apps", "Data Factory", "Databricks", "Power BI"],
   },
   {
     slug: "social-competitive-media-analytics",
@@ -697,7 +702,7 @@ export const caseStudies: CaseStudy[] = [
       "Breadth of sources vs. the maintenance cost of more collectors.",
     ],
     implementation:
-      "Python extraction across platforms, ML models for spam/ham, sentiment, and named-entity recognition, automated processing steps, and Power BI dashboards surfacing the structured results.",
+      "Python extraction across platforms, ML models for spam/ham, sentiment, and named-entity recognition, automated processing steps, and Power BI dashboards surfacing the structured results. Representative analyses included competitor-browser sentiment (e.g., Brave Browser) and video-platform comment analysis (YouTube).",
     challenges: [
       "Normalizing across platform APIs and formats.",
       "Separating signal from spam before analysis.",
@@ -776,7 +781,7 @@ export const achievements: { category: string; items: string[] }[] = [
     category: "Performance & Cost",
     items: [
       "Snowflake → Databricks migration: ~87.5% faster end-to-end; largest dataset 144 → 18 min.",
-      "REPLICN_SF pipeline optimization: ~$10,074/year saved, ~2,597 hours/year of runtime reduced.",
+      "Replication-pipeline optimization: ~$10,074/year saved, ~2,597 hours/year of runtime reduced.",
       "Production workflow cut from 10 hrs to 3 hrs (~$9,700/year).",
       "Sandbox Duster: ~5 TB reclaimed, 437 tables decommissioned, ~$9,216/year saved.",
       "Executive reporting latency reduced from 8 hours to 10 minutes.",

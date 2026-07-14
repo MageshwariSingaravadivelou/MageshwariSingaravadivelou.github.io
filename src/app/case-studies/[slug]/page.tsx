@@ -6,6 +6,7 @@ import { caseStudies } from "@/lib/site";
 import { Section } from "@/components/section";
 import { Reveal } from "@/components/reveal";
 import { Card } from "@/components/ui/card";
+import { FlowDiagram } from "@/components/flow-diagram";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -65,13 +66,13 @@ export default async function CaseStudyDetail({
         >
           <FiArrowLeft className="h-4 w-4" /> All case studies
         </Link>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
           {c.title}
         </h1>
       </Reveal>
 
       <Reveal className="mt-6">
-        <Card className="glow max-w-3xl border-accent/30 bg-accent/5">
+        <Card className="glow border-accent/30 bg-accent/5">
           <h2 className="mb-2 text-sm font-medium uppercase tracking-widest text-accent">
             Executive Summary
           </h2>
@@ -79,13 +80,20 @@ export default async function CaseStudyDetail({
         </Card>
       </Reveal>
 
-      <div className="mt-6 max-w-3xl">
+      <div className="mt-6">
         <Block title="Business Problem">{c.businessProblem}</Block>
         <Block title="Existing System">{c.existingSystem}</Block>
         <Block title="Pain Points">
           <List items={c.painPoints} />
         </Block>
-        <Block title="Target Architecture">{c.targetArchitecture}</Block>
+        <Block title="Target Architecture">
+          {c.targetArchitecture}
+          {c.flow && (
+            <div className="mt-6">
+              <FlowDiagram steps={c.flow} caption="Event-driven pipeline flow" />
+            </div>
+          )}
+        </Block>
         <Block title="Design Decisions & Rationale">
           <div className="space-y-4">
             {c.designDecisions.map((d, i) => (

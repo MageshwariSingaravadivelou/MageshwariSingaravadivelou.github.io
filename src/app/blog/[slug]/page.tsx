@@ -76,6 +76,16 @@ export default async function BlogPostDetail({
                   </p>
                 ))}
               </div>
+              {s.image && (
+                <figure className="mt-6">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={s.image}
+                    alt={s.imageAlt ?? ""}
+                    className="w-full rounded-2xl border border-border bg-white p-4"
+                  />
+                </figure>
+              )}
             </Reveal>
           ))}
         </div>

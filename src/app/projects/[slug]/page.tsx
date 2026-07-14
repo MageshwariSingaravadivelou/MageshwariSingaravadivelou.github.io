@@ -66,10 +66,10 @@ export default async function ProjectDetail({
         >
           <FiArrowLeft className="h-4 w-4" /> All projects
         </Link>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight md:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
           {p.title}
         </h1>
-        <p className="mt-4 max-w-2xl text-lg text-fg-muted">{p.tagline}</p>
+        <p className="mt-4 max-w-3xl text-lg text-fg-muted">{p.tagline}</p>
         <div className="mt-6 flex flex-wrap gap-2">
           {p.stack.map((t) => (
             <Badge key={t}>{t}</Badge>
@@ -88,7 +88,7 @@ export default async function ProjectDetail({
         </Reveal>
       )}
 
-      <div className="mt-10 max-w-3xl">
+      <div className="mt-10">
         <Block title="Problem">
           <p className="leading-relaxed">{p.problem}</p>
         </Block>
