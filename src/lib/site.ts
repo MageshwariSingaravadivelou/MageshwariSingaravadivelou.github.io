@@ -10,6 +10,7 @@
 export const site = {
   name: "Mageshwari Singaravadivelou",
   shortName: "Mageshwari S.",
+  initials: "MS",
   role: "Senior Data Engineer",
   tagline:
     "I build and modernize cloud-native data platforms — migrations, governance, and pipeline optimization that cut cost and runtime while keeping data trustworthy.",
@@ -100,17 +101,17 @@ export const experience: Experience[] = [
     stack: ["Azure Data Factory", "Databricks", "ADLS Gen2", "Cosmos DB", "SSIS", "Power BI", "SQL"],
   },
   {
-    company: "LatentView Analytics — Social & Product Analytics",
+    company: "LatentView Analytics — SmartInsights (Consumer Trend Intelligence)",
     role: "Data / Analytics Engineer",
     period: "Jul 2019 — Oct 2020",
     location: "Chennai, India",
     summary:
-      "Started on the data extraction and ingestion team, building the Python pipelines and ML models that powered a social-listening analytics product.",
+      "My first engagement: on the Data Extraction & Processing team for SmartInsights, LatentView's proprietary AI consumer-trend-intelligence platform, building the Python pipelines and ML models that fed its trend analysis.",
     highlights: [
-      "Developed Python extraction and validation pipelines for social-media data that were the product's primary insight source, enabling on-time delivery and new client pitches.",
-      "Built Spam/Ham, sentiment, and NER models, and automated manual production steps to improve efficiency.",
+      "Developed Python extraction and validation pipelines across multiple social and eCommerce sources — the platform's primary insight source, enabling on-time delivery and new client pitches.",
+      "Built Spam/Ham, sentiment, and NER models and automated manual production steps to improve efficiency.",
     ],
-    stack: ["Python", "PySpark", "SQL", "Machine Learning", "Synthesio", "Sprinklr"],
+    stack: ["Python", "Twitter API", "BERT", "NER / NLU", "AWS", "Machine Learning"],
   },
 ];
 
@@ -363,6 +364,46 @@ export const projects: Project[] = [
     lessons: [
       "Event-driven beats scheduled whenever data freshness is the goal.",
       "Half of a clean cloud design is choosing the right managed services for each step.",
+    ],
+    featured: false,
+  },
+  {
+    slug: "smartinsights-data-extraction",
+    title: "SmartInsights — Data Extraction & Processing Layer",
+    tagline:
+      "Built the multi-source data foundation behind LatentView's proprietary AI consumer-trend-intelligence platform — the first project of my career.",
+    problem:
+      "Consumer companies need to spot emerging trends before they go mainstream. SmartInsights answers that by mining huge volumes of consumer conversation and classifying trends as Emerging, Mainstream, or Declining — but that intelligence is only as good as the data feeding it, which had to be extracted and cleaned from a dozen noisy public sources.",
+    businessContext:
+      "SmartInsights is LatentView's proprietary, AI-powered consumer-based innovation platform used to guide product positioning and first-mover advantage. Commercial social-listening tools (Synthesio, Sprinklr, Meltwater) run $25K–$100K/year, so the data pipeline was built in-house — making the extraction & processing layer I worked on business-critical.",
+    challenges: [
+      "Extract from heterogeneous sources — YouTube, Twitter, Reddit, blogs, news, forums, eCommerce, research/patents — each with its own API, rate limits, and format.",
+      "Deliver clean, deduplicated, analysis-ready data reliably and on time.",
+      "Strip spam and noise before it could distort downstream trend analysis.",
+    ],
+    architecture:
+      "SmartInsights is a four-layer platform — Extraction & Ingestion → Processing → Analysis → Presentation — deployed multi-cloud (AWS/Azure/GCP). I worked on the Extraction & Processing layers: per-source Python extractors (including the Twitter API), light cleansing, BERT-based spam annotation, AI-dictionary creation, and NER training-data annotation that fed the platform's NLU models.",
+    stack: ["Python", "Twitter API", "BERT", "NER / NLU", "AWS", "Machine Learning"],
+    contributions: [
+      "Developed the Python extraction and ingestion scripts across multiple social and eCommerce sources — the platform's primary insight source.",
+      "Built validation so the data was clean and delivered on time, which directly enabled new client pitches.",
+      "Created Spam/Ham, sentiment, and NER models, and automated manual production steps to cut intervention.",
+    ],
+    decisions: [
+      "Build extraction in-house (Twitter API + source-specific collectors) instead of licensing $25K–$100K tools — the pipeline became a durable asset rather than a subscription.",
+      "Use BERT-based spam annotation up front to protect the quality of every downstream trend model.",
+    ],
+    performance: [
+      "Processed millions of conversations per category (e.g. ~4.4M eCommerce & social conversations for a single category study).",
+      "Automated annotation and cleansing steps, reducing manual effort and turnaround time.",
+    ],
+    outcomes: [
+      "Supplied the clean, high-volume data that powered the platform's 650+ tracked trends and its trend calls.",
+      "Reliable, on-time data extraction unlocked new client engagements.",
+    ],
+    lessons: [
+      "In trend intelligence, extraction and cleansing quality is the whole game — garbage in, garbage out is not a cliché, it's the product risk.",
+      "Automating annotation lets a small team iterate on models far faster.",
     ],
     featured: false,
   },

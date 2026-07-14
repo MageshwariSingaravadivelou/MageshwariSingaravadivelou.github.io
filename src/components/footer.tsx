@@ -1,27 +1,17 @@
-import Link from "next/link";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import { site, nav } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="relative z-10 border-t border-border">
       <div className="container-content py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-lg font-semibold">{site.name}</p>
-            <p className="mt-1 text-sm text-fg-muted">{site.role}</p>
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/15 text-sm font-semibold text-accent ring-1 ring-accent/30">
+              {site.initials}
+            </span>
+            <p className="text-sm text-fg-muted">{site.role}</p>
           </div>
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-fg-muted">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="transition-colors hover:text-fg"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
           <div className="flex gap-4">
             <a
               href={site.github}

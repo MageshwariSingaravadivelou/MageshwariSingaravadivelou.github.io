@@ -35,12 +35,12 @@ export function Nav() {
       )}
     >
       <div className="container-content flex h-16 items-center justify-between">
-        <Link href="/" className="group flex items-center gap-2 font-semibold">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent/15 text-accent ring-1 ring-accent/30">
-            MS
+        <Link href="/" className="group flex items-center gap-2.5 font-semibold">
+          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent/15 text-xs text-accent ring-1 ring-accent/30">
+            {site.initials}
           </span>
-          <span className="hidden text-sm text-fg-muted transition-colors group-hover:text-fg sm:inline">
-            {site.role}
+          <span className="text-sm tracking-tight text-fg transition-colors group-hover:text-accent">
+            {site.name}
           </span>
         </Link>
 
