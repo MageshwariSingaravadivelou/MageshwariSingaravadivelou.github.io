@@ -58,7 +58,7 @@ export default function AboutPage() {
         </p>
       </Reveal>
 
-      <div className="flex max-w-3xl flex-col gap-6">
+      <div className="flex flex-col gap-6">
         {philosophy.map((p, i) => (
           <Reveal key={p.title} delayIndex={i}>
             <Card>
