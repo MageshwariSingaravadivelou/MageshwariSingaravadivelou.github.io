@@ -33,7 +33,7 @@ export default function AboutPage() {
     <Section className="pt-28">
       <SectionHeading
         eyebrow="About"
-        title="Engineer, platform owner, problem framer"
+        title="Engineer, Platform Owner, Problem Solver"
         description="Not a resume — how I think about building data systems that teams and businesses depend on."
       />
 
@@ -58,10 +58,10 @@ export default function AboutPage() {
         </p>
       </Reveal>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="flex max-w-3xl flex-col gap-6">
         {philosophy.map((p, i) => (
           <Reveal key={p.title} delayIndex={i}>
-            <Card className="h-full">
+            <Card>
               <h3 className="text-lg font-semibold text-fg">{p.title}</h3>
               <p className="mt-3 leading-relaxed text-fg-muted">{p.body}</p>
             </Card>
