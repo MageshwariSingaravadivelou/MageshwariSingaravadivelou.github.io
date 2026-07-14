@@ -43,8 +43,8 @@ export default function AboutPage() {
           messy, high-volume marketing data into platforms that global teams trust
           to make decisions. I started on data extraction and ML for a
           social-listening product, moved into marketing analytics engineering for
-          Microsoft, and now own the data engineering roadmap for Adobe&apos;s
-          Digital Experience Marketing platform.
+          a global technology company, and now own the data engineering roadmap for
+          an enterprise digital-experience marketing platform.
         </p>
         <p>
           The throughline is ownership: I take ambiguous business asks — &quot;the

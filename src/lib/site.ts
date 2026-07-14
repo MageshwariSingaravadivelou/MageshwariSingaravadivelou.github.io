@@ -62,17 +62,17 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    company: "LatentView Analytics — Adobe Digital Experience Marketing",
+    company: "LatentView Analytics — Enterprise Digital-Experience Marketing",
     role: "Senior Data Engineer / Assistant Manager (L3)",
     period: "Aug 2022 — Present",
     location: "Chennai, India",
     summary:
-      "Own data engineering for Adobe's global Digital Experience Marketing (DXM) data platform, leading a 10+ member team and driving the migration, governance, and optimization roadmap that keeps executive marketing analytics fast and trustworthy.",
+      "Own data engineering for a global enterprise's digital-experience marketing data platform, leading a 10+ member team and driving the migration, governance, and optimization roadmap that keeps executive marketing analytics fast and trustworthy.",
     highlights: [
       "Led the Snowflake → Databricks migration via Azure Data Factory, cutting average end-to-end execution ~87.5% (largest dataset 144 → 18 min) and retiring the legacy SSIS / Tidal / SnapLogic toolchain.",
       "Optimized the REPLICN_SF pipelines for ~$10,074/year cost savings and ~2,597 hours/year of runtime reduction; cut a core production workflow from 10 hrs to 3 hrs (~$9,700/year).",
       "Architected 'Sandbox Duster', a Flask + Databricks governance app that decommissioned 437 tables, reclaimed ~5 TB, and saved ~$9,216/year while standardizing data-retention policy.",
-      "Built automated data-quality and validation frameworks (DXM Validation Dashboard Phases 1–2) delivering 99.5% data reliability, and drove the Unity Catalog cutover for the platform.",
+      "Built automated data-quality and validation frameworks (marketing-data validation dashboards, Phases 1–2) delivering 99.5% data reliability, and drove the Unity Catalog cutover for the platform.",
       "Consistently rated DEL2 with client VoC scores of 8–10; mentored the team to certifications and interview panels across Bangalore/Delhi.",
     ],
     stack: [
@@ -87,26 +87,26 @@ export const experience: Experience[] = [
     ],
   },
   {
-    company: "LatentView Analytics — Microsoft Marketing (Bing / Business Planning)",
+    company: "LatentView Analytics — Global Technology: Search & Advertising Marketing",
     role: "Data Engineer / Senior Analyst",
     period: "Oct 2020 — Aug 2022",
     location: "Chennai, India",
     summary:
-      "Owned marketing analytics pipelines and executive reporting for Microsoft's Bing campaigns and business-planning functions, turning fragmented marketing data into reliable, decision-ready dashboards.",
+      "Owned marketing analytics pipelines and executive reporting for a global technology company's search-advertising and business-planning functions, turning fragmented marketing data into reliable, decision-ready dashboards.",
     highlights: [
       "Built an automated Azure pipeline (ADF + Databricks + ADLS Gen2 / Cosmos DB) to fetch, cleanse, and transform marketing data for Power BI — reducing reporting latency from 8 hours to 10 minutes.",
-      "Delivered OKR-grind insights and competitor analyses (Brave Browser, Edge Bar, YouTube comment analysis) that fed product-feature release decisions.",
-      "Owned MSN and Seeker Power BI dashboards end-to-end with direct client interaction, plus ETL monitoring/validation across SSIS packages.",
+      "Delivered OKR insights and competitor analyses (browser and video-platform analysis) that fed product-feature release decisions.",
+      "Owned portal and campaign Power BI dashboards end-to-end with direct client interaction, plus ETL monitoring/validation across SSIS packages.",
     ],
     stack: ["Azure Data Factory", "Databricks", "ADLS Gen2", "Cosmos DB", "SSIS", "Power BI", "SQL"],
   },
   {
-    company: "LatentView Analytics — SmartInsights (Consumer Trend Intelligence)",
+    company: "LatentView Analytics — Consumer Trend Intelligence Platform",
     role: "Data / Analytics Engineer",
     period: "Jul 2019 — Oct 2020",
     location: "Chennai, India",
     summary:
-      "My first engagement: on the Data Extraction & Processing team for SmartInsights, LatentView's proprietary AI consumer-trend-intelligence platform, building the Python pipelines and ML models that fed its trend analysis.",
+      "My first engagement: on the Data Extraction & Processing team for a proprietary AI consumer-trend-intelligence platform (LatentView IP), building the Python pipelines and ML models that fed its trend analysis.",
     highlights: [
       "Developed Python extraction and validation pipelines across multiple social and eCommerce sources — the platform's primary insight source, enabling on-time delivery and new client pitches.",
       "Built Spam/Ham, sentiment, and NER models and automated manual production steps to improve efficiency.",
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     problem:
       "Marketing data pipelines were spread across Snowflake and a brittle chain of legacy tools (SSIS, Tidal, SnapLogic). End-to-end runs were slow and fragile, and every tool added an operational and licensing tax.",
     businessContext:
-      "Adobe's DXM analytics depend on timely, reliable marketing data for executive dashboards. Latency and pipeline failures directly delayed the insights stakeholders used to make product and campaign decisions.",
+      "The marketing analytics function depends on timely, reliable data for executive dashboards. Latency and pipeline failures directly delayed the insights stakeholders used to make product and campaign decisions.",
     challenges: [
       "Move large datasets without disrupting live reporting.",
       "Preserve correctness and row-level parity across a platform change.",
@@ -215,8 +215,8 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "dxm-data-quality-framework",
-    title: "DXM Data Quality & Validation Framework",
+    slug: "marketing-data-quality-framework",
+    title: "Marketing Data Quality & Validation Framework",
     tagline:
       "Automated validation + monitoring that took marketing-data reliability to 99.5% and cut detection time for failures.",
     problem:
@@ -228,7 +228,7 @@ export const projects: Project[] = [
       "Automate validation for high-pain areas (e.g. the td_opg validation) that had caused past incidents.",
     ],
     architecture:
-      "Spark SQL + System Tables power automated validation checks and lineage/health monitoring; a Power BI validation dashboard surfaces metric-level correctness (DXM Validation Dashboard Phases 1–2).",
+      "Spark SQL + System Tables power automated validation checks and lineage/health monitoring; a Power BI validation dashboard surfaces metric-level correctness (marketing-data validation dashboards, Phases 1–2).",
     stack: ["Databricks", "Spark SQL", "System Tables", "Power BI", "Python"],
     contributions: [
       "Designed the validation framework and the monitoring that tracks lineage, storage growth, and pipeline health.",
@@ -258,7 +258,7 @@ export const projects: Project[] = [
     problem:
       "Daily-refresh logic lived in legacy stored procedures with ad-hoc security; the platform lacked centralized governance and lineage.",
     businessContext:
-      "As the DXM platform grew, governance, security, and maintainability became first-order requirements — not nice-to-haves.",
+      "As the marketing data platform grew, governance, security, and maintainability became first-order requirements — not nice-to-haves.",
     challenges: [
       "Port procedural ETL to Databricks without behavior drift.",
       "Cut over to Unity Catalog governance on a live platform.",
@@ -288,14 +288,14 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    slug: "microsoft-marketing-analytics",
-    title: "Microsoft Marketing Analytics Platform",
+    slug: "enterprise-marketing-analytics",
+    title: "Enterprise Marketing Analytics Platform",
     tagline:
       "Automated Azure pipeline that cut executive-reporting latency from 8 hours to 10 minutes.",
     problem:
-      "Marketing data for Microsoft's business planning arrived through slow, manual refreshes, delaying the dashboards executives relied on.",
+      "Marketing data for a global technology company's business planning arrived through slow, manual refreshes, delaying the dashboards executives relied on.",
     businessContext:
-      "Bing-campaign and MSN reporting fed OKR grinds and product-feature decisions; stale data meant stale decisions.",
+      "Search-campaign and portal reporting fed OKR grinds and product-feature decisions; stale data meant stale decisions.",
     challenges: [
       "Reliable, dependency-managed refresh cycles across multiple sources.",
       "Consistent KPI availability for executive stakeholders.",
@@ -305,7 +305,7 @@ export const projects: Project[] = [
     stack: ["Azure Data Factory", "Databricks", "ADLS Gen2", "Cosmos DB", "Power BI", "Python"],
     contributions: [
       "Built the end-to-end automated pipeline and scheduled orchestration.",
-      "Owned MSN/Seeker dashboards and competitor analyses feeding product decisions.",
+      "Owned portal and campaign dashboards and competitor analyses feeding product decisions.",
     ],
     decisions: [
       "Introduced dependency management into the orchestration so refreshes were reliable, not just fast.",
@@ -368,21 +368,21 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    slug: "smartinsights-data-extraction",
-    title: "SmartInsights — Data Extraction & Processing Layer",
+    slug: "consumer-trend-data-extraction",
+    title: "Consumer Trend Intelligence — Data Extraction & Processing Layer",
     tagline:
       "Built the multi-source data foundation behind LatentView's proprietary AI consumer-trend-intelligence platform — the first project of my career.",
     problem:
-      "Consumer companies need to spot emerging trends before they go mainstream. SmartInsights answers that by mining huge volumes of consumer conversation and classifying trends as Emerging, Mainstream, or Declining — but that intelligence is only as good as the data feeding it, which had to be extracted and cleaned from a dozen noisy public sources.",
+      "Consumer companies need to spot emerging trends before they go mainstream. The platform answers that by mining huge volumes of consumer conversation and classifying trends as Emerging, Mainstream, or Declining — but that intelligence is only as good as the data feeding it, which had to be extracted and cleaned from a dozen noisy public sources.",
     businessContext:
-      "SmartInsights is LatentView's proprietary, AI-powered consumer-based innovation platform used to guide product positioning and first-mover advantage. Commercial social-listening tools (Synthesio, Sprinklr, Meltwater) run $25K–$100K/year, so the data pipeline was built in-house — making the extraction & processing layer I worked on business-critical.",
+      "The platform is a proprietary, AI-powered consumer-innovation product (LatentView IP) used to guide product positioning and first-mover advantage. Commercial social-listening tools run $25K–$100K/year, so the data pipeline was built in-house — making the extraction & processing layer I worked on business-critical.",
     challenges: [
       "Extract from heterogeneous sources — YouTube, Twitter, Reddit, blogs, news, forums, eCommerce, research/patents — each with its own API, rate limits, and format.",
       "Deliver clean, deduplicated, analysis-ready data reliably and on time.",
       "Strip spam and noise before it could distort downstream trend analysis.",
     ],
     architecture:
-      "SmartInsights is a four-layer platform — Extraction & Ingestion → Processing → Analysis → Presentation — deployed multi-cloud (AWS/Azure/GCP). I worked on the Extraction & Processing layers: per-source Python extractors (including the Twitter API), light cleansing, BERT-based spam annotation, AI-dictionary creation, and NER training-data annotation that fed the platform's NLU models.",
+      "The platform is a four-layer system — Extraction & Ingestion → Processing → Analysis → Presentation — deployed multi-cloud (AWS/Azure/GCP). I worked on the Extraction & Processing layers: per-source Python extractors (including the Twitter API), light cleansing, BERT-based spam annotation, AI-dictionary creation, and NER training-data annotation that fed the platform's NLU models.",
     stack: ["Python", "Twitter API", "BERT", "NER / NLU", "AWS", "Machine Learning"],
     contributions: [
       "Developed the Python extraction and ingestion scripts across multiple social and eCommerce sources — the platform's primary insight source.",
@@ -499,7 +499,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "snowflake-to-databricks-migration",
     title: "Migrating a Marketing Data Estate from Snowflake to a Databricks Lakehouse",
     executiveSummary:
-      "Re-platformed Adobe DXM's marketing data off Snowflake and a legacy SSIS/Tidal/SnapLogic toolchain onto a Unity-Catalog-governed Databricks lakehouse using Azure Data Factory direct-copy. Average end-to-end execution fell ~87.5% (largest dataset 144 → 18 min) and three legacy tools were retired — with parity validated before cutover.",
+      "Re-platformed a global enterprise's marketing data off Snowflake and a legacy SSIS/Tidal/SnapLogic toolchain onto a Unity-Catalog-governed Databricks lakehouse using Azure Data Factory direct-copy. Average end-to-end execution fell ~87.5% (largest dataset 144 → 18 min) and three legacy tools were retired — with parity validated before cutover.",
     businessProblem:
       "Executive marketing dashboards depended on data that arrived through slow, fragile pipelines. Latency and failures delayed decisions, and the multi-tool ETL stack carried recurring operational and licensing cost.",
     existingSystem:
@@ -607,6 +607,63 @@ export const caseStudies: CaseStudy[] = [
     futureImprovements: [
       "Policy-as-code retention rules per environment.",
       "Anomaly alerts on storage-growth trends.",
+    ],
+  },
+  {
+    slug: "powerbi-dashboard-refresh-automation",
+    title: "Event-Driven Power BI Dashboard Refresh on Azure",
+    executiveSummary:
+      "Built an event-driven pipeline — Blob Storage → Logic Apps → Data Factory → Databricks → Power BI REST API — so dashboards refresh themselves the moment their data changes. It removed manual refreshes and the local-file dependency entirely, on a low-cost, consumption-priced serverless footprint.",
+    businessProblem:
+      "Owning a large set of Power BI dashboards meant refreshing them by hand every day from files saved on someone's laptop — slow, error-prone, and impossible to scale.",
+    existingSystem:
+      "A manual scheduler plus locally saved files; a person exported data and refreshed each dashboard on a cadence.",
+    painPoints: [
+      "Scheduled refreshes ran when nothing had changed and lagged when data changed right after a run.",
+      "Manual steps introduced errors.",
+      "Refresh depended on files living on a local machine.",
+    ],
+    targetArchitecture:
+      "A fully event-driven chain where each Azure service owns one job: Blob Storage holds source data; a Logic App fires on blob add/modify; Azure Data Factory runs a Databricks notebook to clean and update the table; the Power BI dataset (sourced from Databricks) is refreshed via its REST API.",
+    designDecisions: [
+      {
+        decision: "Event-driven instead of a scheduled refresh.",
+        rationale: "The data triggers the work — no stale windows and no wasted runs.",
+      },
+      {
+        decision: "Databricks as the clean + transform (+ optional ML) layer.",
+        rationale: "Keeps logic scalable and observable instead of hidden in a bespoke script host.",
+      },
+      {
+        decision: "Consumption-priced managed services throughout.",
+        rationale: "Logic Apps' free action tier plus low ADF/blob cost keep it cheap to run.",
+      },
+    ],
+    tradeoffs: [
+      "Event orchestration is more moving parts than a single cron job — justified by freshness and zero manual effort.",
+      "Managed services trade fine-grained control for operational simplicity and low cost.",
+    ],
+    implementation:
+      "In Logic Apps Designer, a trigger fires on any storage modification and starts an ADF pipeline; the pipeline invokes a Databricks notebook that fetches and updates the data; Power BI is then refreshed through its REST API — end to end, no human in the loop.",
+    challenges: [
+      "Reliable orchestration across four services.",
+      "Refreshing Power BI programmatically and retaining historical files.",
+    ],
+    scaling:
+      "A parameterized ADF pipeline means onboarding another dataset is configuration, not new code; Databricks scales the transformation step.",
+    monitoring:
+      "ADF pipeline runs are monitored and outputs verified on each trigger, so a failed refresh surfaces quickly.",
+    security:
+      "No data lives on local machines; service-to-service connections replace manual file handling.",
+    costOptimization:
+      "Runs on consumption pricing — Logic Apps' free action tier, low Data Factory (~$0.00025/hr) and Blob (~$0.015/GB/mo) cost — and removes licensed-tool overhead.",
+    lessons: [
+      "Event-driven beats scheduled whenever freshness is the goal.",
+      "Half of a clean cloud design is choosing the right managed service for each step.",
+    ],
+    futureImprovements: [
+      "Alerting on failed refreshes.",
+      "Generalize the connector pattern to onboard more data sources.",
     ],
   },
 ];
