@@ -8,23 +8,23 @@ export const metadata: Metadata = { title: "About" };
 const philosophy = [
   {
     title: "How I think",
-    body: "PLACEHOLDER — start from the business outcome and work backwards to the architecture. I optimize for the decision the data has to support, not for the pipeline itself.",
+    body: "I start from the decision the data has to support and work backwards to the architecture. Executive dashboards are only as valuable as they are timely and trustworthy — so latency and reliability are product features, not afterthoughts.",
   },
   {
     title: "How I solve problems",
-    body: "PLACEHOLDER — reproduce, measure, then change one variable at a time. I trust profiling and row-count parity over intuition, and I leave the system more observable than I found it.",
+    body: "Reproduce, measure, then change one variable at a time. My biggest wins came from removing hops rather than tuning them — and from validating row-level parity before any cutover, which turns risky migrations into routine ones.",
   },
   {
     title: "Engineering philosophy",
-    body: "PLACEHOLDER — correctness first, then performance, then cost — in that order. Boring, well-understood building blocks beat clever ones that only I can operate.",
+    body: "Correctness first, then performance, then cost. Automation is only worth adopting when every action is auditable and recoverable — that is the principle behind the governance tooling I build.",
   },
   {
     title: "Leadership approach",
-    body: "PLACEHOLDER — I lead through clear problem framing and durable documentation, unblock others before myself, and make the reasoning behind decisions explicit so the team can extend them.",
+    body: "I lead a 10+ member team through clear problem framing, durable documentation, and mentorship — guiding engineers to certifications and pushing decisions and their rationale into the open so the team can extend them.",
   },
   {
     title: "Continuous learning",
-    body: "PLACEHOLDER — I go deep on the fundamentals (distributed execution, storage layout, query planning) so new tools slot into a mental model I already trust.",
+    body: "Four Databricks/Azure certifications and counting. I go deep on fundamentals — distributed execution, storage layout, governance — so new tools slot into a mental model I already trust.",
   },
 ];
 
@@ -39,15 +39,22 @@ export default function AboutPage() {
 
       <Reveal className="mb-14 max-w-3xl space-y-4 text-lg leading-relaxed text-fg-muted">
         <p>
-          PLACEHOLDER — 2–3 paragraphs of your professional story. Where you
-          started, the kinds of problems you gravitated toward, and the throughline
-          that connects your work: turning messy, high-volume data into platforms
-          people trust to make decisions.
+          I&apos;m a Senior Data Engineer who has spent the last six years turning
+          messy, high-volume marketing data into platforms that global teams trust
+          to make decisions. I started on data extraction and ML for a
+          social-listening product, moved into marketing analytics engineering for
+          Microsoft, and now own the data engineering roadmap for Adobe&apos;s
+          Digital Experience Marketing platform.
         </p>
         <p>
-          PLACEHOLDER — a paragraph on the scale you operate at and the kind of
-          ownership you take: from ambiguous business asks to production systems,
-          SLAs, and the numbers that prove it worked.
+          The throughline is ownership: I take ambiguous business asks — &quot;the
+          numbers are late&quot;, &quot;this costs too much&quot;, &quot;we
+          can&apos;t trust this dashboard&quot; — and turn them into production
+          systems with measurable outcomes. That has meant re-platforming off
+          Snowflake and a legacy ETL toolchain onto a governed Databricks lakehouse
+          (~87.5% faster), building a governance app that reclaimed terabytes of
+          storage, and standing up validation frameworks that took data reliability
+          to 99.5% — while leading and mentoring a 10+ member team.
         </p>
       </Reveal>
 

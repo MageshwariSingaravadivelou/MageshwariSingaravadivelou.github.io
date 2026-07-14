@@ -1,26 +1,25 @@
 /**
  * Central content model for the portfolio.
  *
- * NOTE: Everything flagged `PLACEHOLDER` is scaffolding copy and must be replaced
- * with real, verified content extracted from Mageshwari's resume / PPTs. The site
- * reads exclusively from this file, so populating real content is a data-only edit
- * (no component changes needed).
+ * Content is extracted from Mageshwari's resume + FY21–FY26 accomplishment
+ * roadmaps and rewritten into engineering narratives. The site reads exclusively
+ * from this file. A few contact fields are marked REPLACE — swap for the values
+ * you want public (e.g. a personal email instead of the work address).
  */
 
 export const site = {
   name: "Mageshwari Singaravadivelou",
   shortName: "Mageshwari S.",
   role: "Senior Data Engineer",
-  // One-line value proposition shown in the hero.
   tagline:
-    "I architect and build cloud-native data platforms that turn raw data into measurable business value.",
-  location: "PLACEHOLDER — City, Country",
-  email: "PLACEHOLDER@example.com",
+    "I build and modernize cloud-native data platforms — migrations, governance, and pipeline optimization that cut cost and runtime while keeping data trustworthy.",
+  location: "Chennai, India",
+  email: "mageshwari.singaravadivelou@latentview.com", // REPLACE if you prefer a personal address
   github: "https://github.com/MageshwariSingaravadivelou",
-  linkedin: "https://www.linkedin.com/in/PLACEHOLDER",
-  resumeUrl: "/resume.pdf", // drop resume.pdf into /public
+  linkedin: "https://www.linkedin.com/in/mageshwari-singaravadivelou",
+  resumeUrl: "/resume.pdf", // add resume.pdf to /public
   url: "https://mageshwarisingaravadivelou.github.io",
-  photo: "/photo.jpg", // drop a square headshot into /public (optional)
+  photo: "/photo.jpg",
 };
 
 export const nav = [
@@ -35,20 +34,20 @@ export const nav = [
   { label: "Contact", href: "/contact" },
 ];
 
-/** Hero metrics — animated count-up. Replace values with real numbers. */
+/** Hero metrics — animated count-up. All values are drawn from real accomplishments. */
 export const metrics: { label: string; value: number; suffix?: string; prefix?: string }[] = [
-  { label: "Years of Experience", value: 8, suffix: "+" }, // PLACEHOLDER
-  { label: "Projects Delivered", value: 25, suffix: "+" }, // PLACEHOLDER
-  { label: "Cloud Platforms", value: 3 }, // PLACEHOLDER
-  { label: "Pipelines Built", value: 120, suffix: "+" }, // PLACEHOLDER
+  { label: "Years in Data Engineering", value: 6, suffix: "+" },
+  { label: "Annual Cost Saved", value: 29, prefix: "$", suffix: "K+" },
+  { label: "Faster Pipeline Execution", value: 87, suffix: "%" },
+  { label: "Storage Reclaimed", value: 5, suffix: " TB" },
 ];
 
 export const specialties = [
-  "Lakehouse & Medallion Architecture",
-  "Batch + Streaming Pipelines",
-  "Data Quality & Governance",
-  "Performance & Cost Optimization",
-]; // PLACEHOLDER — refine from materials
+  "Lakehouse & Unity Catalog",
+  "Snowflake → Databricks Migration",
+  "Pipeline Cost & Runtime Optimization",
+  "Data Quality & Validation Frameworks",
+];
 
 export type Experience = {
   company: string;
@@ -62,17 +61,56 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    company: "PLACEHOLDER — Company",
-    role: "Senior Data Engineer",
-    period: "2022 — Present",
-    location: "Remote",
+    company: "LatentView Analytics — Adobe Digital Experience Marketing",
+    role: "Senior Data Engineer / Assistant Manager (L3)",
+    period: "Aug 2022 — Present",
+    location: "Chennai, India",
     summary:
-      "PLACEHOLDER — one or two sentences framing the business challenge you owned and the platform you built.",
+      "Own data engineering for Adobe's global Digital Experience Marketing (DXM) data platform, leading a 10+ member team and driving the migration, governance, and optimization roadmap that keeps executive marketing analytics fast and trustworthy.",
     highlights: [
-      "PLACEHOLDER — solution built + architecture + measurable impact (e.g. cut pipeline runtime 66% → 4s).",
-      "PLACEHOLDER — leadership / ownership moment.",
+      "Led the Snowflake → Databricks migration via Azure Data Factory, cutting average end-to-end execution ~87.5% (largest dataset 144 → 18 min) and retiring the legacy SSIS / Tidal / SnapLogic toolchain.",
+      "Optimized the REPLICN_SF pipelines for ~$10,074/year cost savings and ~2,597 hours/year of runtime reduction; cut a core production workflow from 10 hrs to 3 hrs (~$9,700/year).",
+      "Architected 'Sandbox Duster', a Flask + Databricks governance app that decommissioned 437 tables, reclaimed ~5 TB, and saved ~$9,216/year while standardizing data-retention policy.",
+      "Built automated data-quality and validation frameworks (DXM Validation Dashboard Phases 1–2) delivering 99.5% data reliability, and drove the Unity Catalog cutover for the platform.",
+      "Consistently rated DEL2 with client VoC scores of 8–10; mentored the team to certifications and interview panels across Bangalore/Delhi.",
     ],
-    stack: ["Databricks", "Spark", "Delta Lake", "Azure", "Python"],
+    stack: [
+      "Databricks",
+      "Spark",
+      "Unity Catalog",
+      "Snowflake",
+      "Azure Data Factory",
+      "Azure Key Vault",
+      "Power BI",
+      "Python",
+    ],
+  },
+  {
+    company: "LatentView Analytics — Microsoft Marketing (Bing / Business Planning)",
+    role: "Data Engineer / Senior Analyst",
+    period: "Oct 2020 — Aug 2022",
+    location: "Chennai, India",
+    summary:
+      "Owned marketing analytics pipelines and executive reporting for Microsoft's Bing campaigns and business-planning functions, turning fragmented marketing data into reliable, decision-ready dashboards.",
+    highlights: [
+      "Built an automated Azure pipeline (ADF + Databricks + ADLS Gen2 / Cosmos DB) to fetch, cleanse, and transform marketing data for Power BI — reducing reporting latency from 8 hours to 10 minutes.",
+      "Delivered OKR-grind insights and competitor analyses (Brave Browser, Edge Bar, YouTube comment analysis) that fed product-feature release decisions.",
+      "Owned MSN and Seeker Power BI dashboards end-to-end with direct client interaction, plus ETL monitoring/validation across SSIS packages.",
+    ],
+    stack: ["Azure Data Factory", "Databricks", "ADLS Gen2", "Cosmos DB", "SSIS", "Power BI", "SQL"],
+  },
+  {
+    company: "LatentView Analytics — Social & Product Analytics",
+    role: "Data / Analytics Engineer",
+    period: "Jul 2019 — Oct 2020",
+    location: "Chennai, India",
+    summary:
+      "Started on the data extraction and ingestion team, building the Python pipelines and ML models that powered a social-listening analytics product.",
+    highlights: [
+      "Developed Python extraction and validation pipelines for social-media data that were the product's primary insight source, enabling on-time delivery and new client pitches.",
+      "Built Spam/Ham, sentiment, and NER models, and automated manual production steps to improve efficiency.",
+    ],
+    stack: ["Python", "PySpark", "SQL", "Machine Learning", "Synthesio", "Sprinklr"],
   },
 ];
 
@@ -90,27 +128,195 @@ export type Project = {
   performance: string[];
   outcomes: string[];
   lessons: string[];
-  diagram?: string; // /public path to an architecture image
+  diagram?: string;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    slug: "enterprise-lakehouse",
-    title: "PLACEHOLDER — Enterprise Lakehouse Platform",
-    tagline: "Unified batch + streaming analytics on a governed medallion lakehouse.",
-    problem: "PLACEHOLDER — the concrete business/technical problem.",
-    businessContext: "PLACEHOLDER — why it mattered to the business.",
-    challenges: ["PLACEHOLDER challenge 1", "PLACEHOLDER challenge 2"],
+    slug: "snowflake-to-databricks-migration",
+    title: "Snowflake → Databricks Migration via Azure Data Factory",
+    tagline:
+      "Re-platformed a marketing data estate off Snowflake and a legacy ETL toolchain onto a Databricks lakehouse — 87.5% faster, dependency-free.",
+    problem:
+      "Marketing data pipelines were spread across Snowflake and a brittle chain of legacy tools (SSIS, Tidal, SnapLogic). End-to-end runs were slow and fragile, and every tool added an operational and licensing tax.",
+    businessContext:
+      "Adobe's DXM analytics depend on timely, reliable marketing data for executive dashboards. Latency and pipeline failures directly delayed the insights stakeholders used to make product and campaign decisions.",
+    challenges: [
+      "Move large datasets without disrupting live reporting.",
+      "Preserve correctness and row-level parity across a platform change.",
+      "Remove three legacy orchestration tools without leaving coverage gaps.",
+    ],
     architecture:
-      "PLACEHOLDER — bronze → silver → gold medallion; ingestion, transformation, serving.",
-    stack: ["Databricks", "Spark", "Delta Lake", "Unity Catalog", "Azure Data Factory"],
-    contributions: ["PLACEHOLDER — what YOU specifically designed/built/owned."],
-    decisions: ["PLACEHOLDER — a key technical decision + the tradeoff you weighed."],
-    performance: ["PLACEHOLDER — before/after metric."],
-    outcomes: ["PLACEHOLDER — business outcome with a number."],
-    lessons: ["PLACEHOLDER — what you'd carry forward."],
+      "Azure Data Factory direct-copy pipelines land source data into a Databricks lakehouse (Delta) governed by Unity Catalog; transformations run on Spark and serve Power BI — replacing the Snowflake + SSIS/Tidal/SnapLogic path.",
+    stack: ["Databricks", "Delta Lake", "Azure Data Factory", "Snowflake", "Unity Catalog", "Spark", "Power BI"],
+    contributions: [
+      "Led the migration design and execution end-to-end, from source assessment to cutover.",
+      "Built the ADF direct-copy pipelines and the Databricks transformation layer that replaced the legacy tools.",
+      "Validated parity and performance before decommissioning the old path.",
+    ],
+    decisions: [
+      "Chose ADF direct-copy over the legacy staged path to eliminate intermediate hops — the single biggest driver of the runtime win.",
+      "Standardized on Delta + Unity Catalog so governance and lineage came with the platform rather than bolted on.",
+    ],
+    performance: [
+      "Average end-to-end execution time reduced ~87.5%.",
+      "Largest dataset migration dropped from 144 minutes (legacy) to 18 minutes (ADF direct copy).",
+    ],
+    outcomes: [
+      "Retired SSIS, Tidal, and SnapLogic dependencies entirely.",
+      "Faster, more reliable refreshes for executive marketing dashboards; recognized by client stakeholders.",
+    ],
+    lessons: [
+      "The cheapest performance win is usually removing hops, not tuning them.",
+      "Parity validation before cutover is what makes a migration boring — in the best way.",
+    ],
     featured: true,
+  },
+  {
+    slug: "sandbox-duster",
+    title: "Sandbox Duster — Enterprise Cloud Governance & Cost Platform",
+    tagline:
+      "A full-stack Flask + Databricks app that automates storage lifecycle management across sandbox environments — with audit, recovery, and executive visibility.",
+    problem:
+      "Sandbox Databricks environments accumulated orphaned tables and storage with no standardized cleanup, driving up cost and governance risk across distributed engineering teams.",
+    businessContext:
+      "Uncontrolled sandbox growth meant real, recurring cloud spend and compliance exposure — and no single view for leadership to reason about it.",
+    challenges: [
+      "Safely automate deletion/rename without risking real data loss.",
+      "Give engineers a self-serve, one-click lifecycle while keeping an auditable trail.",
+      "Surface storage telemetry to executives in a form they can act on.",
+    ],
+    architecture:
+      "A Flask application integrated with Databricks: a 'One-Click' lifecycle service applies retention policy; a persistent audit/recovery layer logs every rename/deletion; and an Executive Admin Suite visualizes storage telemetry and growth trends.",
+    stack: ["Flask", "Databricks", "Spark SQL", "System Tables", "Python", "PAT Auth"],
+    contributions: [
+      "Architected and led end-to-end development of the application.",
+      "Designed the One-Click lifecycle protocol standardizing retention for distributed teams.",
+      "Built the audit/recovery framework with persistent logging for 100% traceability.",
+    ],
+    decisions: [
+      "Made every destructive action reversible-by-record (persistent audit log) so automation could be trusted.",
+      "Used Spark SQL over System Tables for real-time lineage and storage-growth tracking rather than manual auditing.",
+    ],
+    performance: [
+      "Decommissioned 437 tables and reclaimed ~5 TB of storage.",
+      "Drastically reduced Mean Time to Detection (MTTD) for pipeline/storage issues via automated monitoring.",
+    ],
+    outcomes: [
+      "~$9,216/year in storage cost savings.",
+      "Enterprise-wide retention standardization and 100% compliance with internal data-handling policy.",
+    ],
+    lessons: [
+      "Automation earns trust only when every action is auditable and recoverable.",
+      "Cost governance is a product problem — executives adopt what they can see.",
+    ],
+    featured: true,
+  },
+  {
+    slug: "dxm-data-quality-framework",
+    title: "DXM Data Quality & Validation Framework",
+    tagline:
+      "Automated validation + monitoring that took marketing-data reliability to 99.5% and cut detection time for failures.",
+    problem:
+      "Manual auditing and daily-refresh firefighting made data reliability inconsistent and slow to diagnose, eroding stakeholder trust in the dashboards.",
+    businessContext:
+      "Executive marketing decisions ran on these numbers; a silent data-quality issue was a business-decision issue.",
+    challenges: [
+      "Catch data-quality regressions before stakeholders did.",
+      "Automate validation for high-pain areas (e.g. the td_opg validation) that had caused past incidents.",
+    ],
+    architecture:
+      "Spark SQL + System Tables power automated validation checks and lineage/health monitoring; a Power BI validation dashboard surfaces metric-level correctness (DXM Validation Dashboard Phases 1–2).",
+    stack: ["Databricks", "Spark SQL", "System Tables", "Power BI", "Python"],
+    contributions: [
+      "Designed the validation framework and the monitoring that tracks lineage, storage growth, and pipeline health.",
+      "Automated the td_opg validation that had been a major recurring pain point.",
+    ],
+    decisions: [
+      "Shifted from manual auditing to a codified, prioritized (production vs. archive) classification so effort focused on high-risk assets.",
+    ],
+    performance: [
+      "Achieved 99.5% data reliability.",
+      "Reduced Mean Time to Detection for failures.",
+    ],
+    outcomes: [
+      "Restored stakeholder trust; recognized by the client for automating the td_opg validation.",
+      "Reduced reporting delays across the marketing analytics function.",
+    ],
+    lessons: [
+      "Reliability is a feature you build, measure, and defend — not a state you hope for.",
+    ],
+    featured: true,
+  },
+  {
+    slug: "unity-catalog-cutover",
+    title: "Databricks Procedure Migration & Unity Catalog Cutover",
+    tagline:
+      "Migrated legacy procedures onto Databricks and moved the platform onto Unity Catalog governance, with secrets hardened via Azure Key Vault.",
+    problem:
+      "Daily-refresh logic lived in legacy stored procedures with ad-hoc security; the platform lacked centralized governance and lineage.",
+    businessContext:
+      "As the DXM platform grew, governance, security, and maintainability became first-order requirements — not nice-to-haves.",
+    challenges: [
+      "Port procedural ETL to Databricks without behavior drift.",
+      "Cut over to Unity Catalog governance on a live platform.",
+      "Remove hardcoded credentials from pipelines.",
+    ],
+    architecture:
+      "Procedures re-implemented on Databricks/Spark; Unity Catalog provides centralized access control and lineage; Azure Key Vault secures pipeline credentials; automated ingestion scripts replace manual steps.",
+    stack: ["Databricks", "Unity Catalog", "Azure Key Vault", "Spark", "Python", "Power BI"],
+    contributions: [
+      "Led procedure migration and the Unity Catalog cutover.",
+      "Built automated data-ingestion scripts and moved secrets into Azure Key Vault.",
+      "Validated table health post-migration.",
+    ],
+    decisions: [
+      "Adopted Unity Catalog as the governance backbone so access and lineage are centrally enforced.",
+    ],
+    performance: [
+      "Eliminated hardcoded credentials from pipelines.",
+      "Reduced manual ingestion steps through automation.",
+    ],
+    outcomes: [
+      "Centralized governance and lineage across the platform; recognized by the client for the migration and cutover.",
+    ],
+    lessons: [
+      "Governance migrations are safest when paired with parity checks and secret hygiene in the same pass.",
+    ],
+    featured: false,
+  },
+  {
+    slug: "microsoft-marketing-analytics",
+    title: "Microsoft Marketing Analytics Platform",
+    tagline:
+      "Automated Azure pipeline that cut executive-reporting latency from 8 hours to 10 minutes.",
+    problem:
+      "Marketing data for Microsoft's business planning arrived through slow, manual refreshes, delaying the dashboards executives relied on.",
+    businessContext:
+      "Bing-campaign and MSN reporting fed OKR grinds and product-feature decisions; stale data meant stale decisions.",
+    challenges: [
+      "Reliable, dependency-managed refresh cycles across multiple sources.",
+      "Consistent KPI availability for executive stakeholders.",
+    ],
+    architecture:
+      "Azure Data Factory orchestrates ingestion from marketing sources into Databricks (with ADLS Gen2 / Cosmos DB), cleansing and transforming before publishing to Power BI with scheduled dependency-managed refreshes.",
+    stack: ["Azure Data Factory", "Databricks", "ADLS Gen2", "Cosmos DB", "Power BI", "Python"],
+    contributions: [
+      "Built the end-to-end automated pipeline and scheduled orchestration.",
+      "Owned MSN/Seeker dashboards and competitor analyses feeding product decisions.",
+    ],
+    decisions: [
+      "Introduced dependency management into the orchestration so refreshes were reliable, not just fast.",
+    ],
+    performance: ["Reporting latency reduced from 8 hours to 10 minutes."],
+    outcomes: [
+      "Consistent KPI availability for executive stakeholders; multiple client appreciations.",
+    ],
+    lessons: [
+      "Latency is a trust metric: when refreshes are fast and reliable, stakeholders start asking better questions.",
+    ],
+    featured: false,
   },
 ];
 
@@ -136,25 +342,118 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "realtime-consumption-platform",
-    title: "PLACEHOLDER — Real-Time Consumption Analytics Platform",
-    executiveSummary: "PLACEHOLDER — 3–4 line summary a hiring manager can skim.",
-    businessProblem: "PLACEHOLDER",
-    existingSystem: "PLACEHOLDER",
-    painPoints: ["PLACEHOLDER"],
-    targetArchitecture: "PLACEHOLDER",
-    designDecisions: [
-      { decision: "PLACEHOLDER decision", rationale: "PLACEHOLDER rationale" },
+    slug: "snowflake-to-databricks-migration",
+    title: "Migrating a Marketing Data Estate from Snowflake to a Databricks Lakehouse",
+    executiveSummary:
+      "Re-platformed Adobe DXM's marketing data off Snowflake and a legacy SSIS/Tidal/SnapLogic toolchain onto a Unity-Catalog-governed Databricks lakehouse using Azure Data Factory direct-copy. Average end-to-end execution fell ~87.5% (largest dataset 144 → 18 min) and three legacy tools were retired — with parity validated before cutover.",
+    businessProblem:
+      "Executive marketing dashboards depended on data that arrived through slow, fragile pipelines. Latency and failures delayed decisions, and the multi-tool ETL stack carried recurring operational and licensing cost.",
+    existingSystem:
+      "Data lived in Snowflake and moved through a chain of SSIS, Tidal, and SnapLogic jobs into reporting — many hops, several tools, and multiple failure points.",
+    painPoints: [
+      "Slow end-to-end runs; the largest dataset took ~144 minutes.",
+      "Operational fragility and licensing/maintenance overhead across three orchestration tools.",
+      "Governance and lineage bolted on rather than built in.",
     ],
-    tradeoffs: ["PLACEHOLDER"],
-    implementation: "PLACEHOLDER",
-    challenges: ["PLACEHOLDER"],
-    scaling: "PLACEHOLDER",
-    monitoring: "PLACEHOLDER",
-    security: "PLACEHOLDER",
-    costOptimization: "PLACEHOLDER",
-    lessons: ["PLACEHOLDER"],
-    futureImprovements: ["PLACEHOLDER"],
+    targetArchitecture:
+      "Azure Data Factory direct-copy pipelines land source data as Delta tables in a Databricks lakehouse governed by Unity Catalog. Spark handles transformation; Power BI consumes the serving layer. The design removes intermediate staging hops and consolidates orchestration.",
+    designDecisions: [
+      {
+        decision: "ADF direct-copy instead of the legacy staged path.",
+        rationale: "Eliminating intermediate hops was the single largest contributor to the ~87.5% runtime reduction.",
+      },
+      {
+        decision: "Delta + Unity Catalog as the foundation.",
+        rationale: "Governance, access control, and lineage come with the platform instead of being maintained separately.",
+      },
+      {
+        decision: "Validate parity before decommissioning the legacy path.",
+        rationale: "De-risks cutover — the old and new paths are proven equivalent before the old one is switched off.",
+      },
+    ],
+    tradeoffs: [
+      "Investing up-front in parity validation slowed the cutover but removed correctness risk.",
+      "Consolidating on one platform trades tool flexibility for operational simplicity and lower cost.",
+    ],
+    implementation:
+      "Assessed sources, built ADF direct-copy pipelines and the Databricks transformation layer, ran old and new paths in parallel for validation, then cut over and decommissioned SSIS/Tidal/SnapLogic.",
+    challenges: [
+      "Moving large datasets without disrupting live reporting.",
+      "Guaranteeing row-level parity across a platform change.",
+    ],
+    scaling:
+      "Spark on Databricks scales the transformation layer horizontally; ADF direct-copy handles the largest datasets in minutes rather than hours.",
+    monitoring:
+      "Pipeline health and lineage tracked via Spark SQL and Databricks System Tables, reducing time-to-detection for failures.",
+    security:
+      "Unity Catalog centralizes access control and lineage; pipeline credentials moved into Azure Key Vault.",
+    costOptimization:
+      "Retiring three legacy tools removed licensing/maintenance overhead; faster runs reduced compute time. Related workstreams saved ~$10,074/year (REPLICN_SF) and ~$9,700/year (production workflow, 10 → 3 hrs).",
+    lessons: [
+      "The cheapest performance win is removing hops, not tuning them.",
+      "Parity validation is what turns a risky migration into a routine cutover.",
+    ],
+    futureImprovements: [
+      "Extend Unity Catalog lineage into automated data-quality expectations.",
+      "Templatize the ADF-direct-copy pattern for future source onboarding.",
+    ],
+  },
+  {
+    slug: "sandbox-duster",
+    title: "Sandbox Duster: Turning Cloud Storage Governance into a Product",
+    executiveSummary:
+      "Built a Flask + Databricks application that automates storage lifecycle management across sandbox environments with a one-click retention protocol, a persistent audit/recovery layer, and an executive telemetry suite. It decommissioned 437 tables, reclaimed ~5 TB, and saved ~$9,216/year while enforcing 100% policy compliance.",
+    businessProblem:
+      "Sandbox environments grew without governance, driving recurring cloud spend and compliance risk, with no leadership-level visibility into what was accumulating or why.",
+    existingSystem:
+      "Manual, inconsistent cleanup across distributed engineering teams; storage audited by hand with no standardized retention policy or audit trail.",
+    painPoints: [
+      "Recurring, avoidable storage cost.",
+      "Compliance risk from unmanaged table lifecycles.",
+      "No single, trustworthy view of storage telemetry for leadership.",
+    ],
+    targetArchitecture:
+      "A Flask app integrated with Databricks: a One-Click lifecycle service applies retention policy; a persistent audit/recovery layer records every rename and deletion; an Executive Admin Suite visualizes storage telemetry and growth trends from Spark SQL over System Tables.",
+    designDecisions: [
+      {
+        decision: "Every destructive action is recorded and recoverable.",
+        rationale: "Automation is only safe to adopt when nothing is irreversible and everything is auditable.",
+      },
+      {
+        decision: "Spark SQL over System Tables for telemetry.",
+        rationale: "Real-time lineage and storage-growth tracking without maintaining a separate metadata store.",
+      },
+      {
+        decision: "One-Click lifecycle as a self-serve protocol.",
+        rationale: "Standardizes retention across distributed teams while keeping engineers in control.",
+      },
+    ],
+    tradeoffs: [
+      "Persistent audit logging adds storage/overhead — a deliberate trade for trust and compliance.",
+      "A guided one-click flow constrains flexibility in favor of safety and consistency.",
+    ],
+    implementation:
+      "Designed the lifecycle protocol and audit schema, built the Flask app and Databricks integration with PAT-based secure auth, and shipped the Executive Admin Suite for leadership visibility.",
+    challenges: [
+      "Safely automating deletion/rename without risking real data loss.",
+      "Making telemetry legible enough for executives to act on.",
+    ],
+    scaling:
+      "Operates across many sandbox schemas/environments; System-Tables-based telemetry scales with the workspace rather than per-table scans.",
+    monitoring:
+      "Persistent logging of table renames/deletions and continuous storage-growth/lineage tracking, lowering Mean Time to Detection.",
+    security:
+      "PAT-based secure authentication for internal API integrations; audit trail maintains 100% compliance with internal data-handling policy.",
+    costOptimization:
+      "Reclaimed ~5 TB by decommissioning 437 tables for ~$9,216/year in savings, and reduced ongoing storage overhead through standardized retention.",
+    lessons: [
+      "Automation earns trust only when every action is auditable and recoverable.",
+      "Cost governance sticks when leadership can see it.",
+    ],
+    futureImprovements: [
+      "Policy-as-code retention rules per environment.",
+      "Anomaly alerts on storage-growth trends.",
+    ],
   },
 ];
 
@@ -162,22 +461,19 @@ export const skillGroups: { category: string; skills: { name: string; level: num
   {
     category: "Cloud",
     skills: [
-      { name: "Azure", level: 90 },
-      { name: "AWS", level: 75 },
-      { name: "GCP", level: 65 },
+      { name: "Microsoft Azure", level: 92 },
+      { name: "AWS (Redshift)", level: 70 },
     ],
   },
   {
     category: "Data Engineering",
     skills: [
-      { name: "Apache Spark", level: 92 },
       { name: "Databricks", level: 92 },
-      { name: "Snowflake", level: 78 },
-      { name: "Azure Data Factory", level: 85 },
-      { name: "Synapse", level: 75 },
-      { name: "Kafka", level: 72 },
-      { name: "Airflow", level: 78 },
-      { name: "dbt", level: 74 },
+      { name: "Apache Spark / PySpark", level: 90 },
+      { name: "Snowflake", level: 82 },
+      { name: "Azure Data Factory", level: 88 },
+      { name: "Unity Catalog", level: 85 },
+      { name: "ETL (SSIS / Tidal / SnapLogic)", level: 80 },
     ],
   },
   {
@@ -185,46 +481,73 @@ export const skillGroups: { category: string; skills: { name: string; level: num
     skills: [
       { name: "SQL", level: 95 },
       { name: "Python", level: 90 },
-      { name: "Scala", level: 70 },
-      { name: "Delta Lake", level: 88 },
+      { name: "Delta Lake", level: 85 },
+      { name: "ADLS Gen2 / Cosmos DB", level: 80 },
+      { name: "SQL Server / MySQL", level: 82 },
     ],
   },
   {
-    category: "DevOps",
+    category: "Analytics & Apps",
     skills: [
-      { name: "Terraform", level: 78 },
-      { name: "GitHub Actions", level: 82 },
-      { name: "Docker", level: 76 },
-      { name: "Kubernetes", level: 65 },
-      { name: "CI/CD", level: 84 },
+      { name: "Power BI", level: 90 },
+      { name: "Flask / Full-Stack", level: 78 },
+      { name: "Adobe Experience Platform", level: 70 },
+      { name: "Machine Learning", level: 72 },
     ],
   },
   {
-    category: "Architecture",
+    category: "Practices",
     skills: [
-      { name: "Lakehouse", level: 90 },
-      { name: "Medallion", level: 90 },
-      { name: "Data Warehouse", level: 85 },
-      { name: "Data Mesh", level: 72 },
-      { name: "Event-Driven", level: 78 },
+      { name: "Lakehouse / Medallion", level: 88 },
+      { name: "Data Governance & Quality", level: 88 },
+      { name: "Cost & Performance Optimization", level: 90 },
+      { name: "Pipeline Orchestration", level: 88 },
     ],
   },
-]; // PLACEHOLDER levels — adjust to reflect real proficiency
+];
 
 export const achievements: { category: string; items: string[] }[] = [
   {
     category: "Performance & Cost",
     items: [
-      "PLACEHOLDER — e.g. reduced a critical pipeline from hours to seconds.",
-      "PLACEHOLDER — e.g. cut warehouse cost X% via query + storage optimization.",
+      "Snowflake → Databricks migration: ~87.5% faster end-to-end; largest dataset 144 → 18 min.",
+      "REPLICN_SF pipeline optimization: ~$10,074/year saved, ~2,597 hours/year of runtime reduced.",
+      "Production workflow cut from 10 hrs to 3 hrs (~$9,700/year).",
+      "Sandbox Duster: ~5 TB reclaimed, 437 tables decommissioned, ~$9,216/year saved.",
+      "Executive reporting latency reduced from 8 hours to 10 minutes.",
+    ],
+  },
+  {
+    category: "Reliability & Governance",
+    items: [
+      "99.5% data reliability via automated validation & monitoring frameworks.",
+      "Led Unity Catalog cutover and moved secrets into Azure Key Vault.",
+      "100% compliance with internal data-handling policy through auditable automation.",
     ],
   },
   {
     category: "Leadership & Mentoring",
-    items: ["PLACEHOLDER — led initiative / mentored engineers."],
+    items: [
+      "Led a 10+ member data engineering team; 8 of 10 hit DEL2 targets (75% exceeded).",
+      "Interview panelist (Bangalore & Delhi), Databricks trainer, and certification mentor.",
+      "Client VoC scores of 8–10 across review cycles.",
+    ],
   },
   {
     category: "Certifications",
-    items: ["PLACEHOLDER — e.g. Databricks Certified Data Engineer Professional."],
+    items: [
+      "Databricks Certified Data Engineer Professional",
+      "Databricks Certified Data Engineer Associate",
+      "Databricks Certified Gen AI Engineer Associate",
+      "Microsoft Certified Azure Developer Associate",
+    ],
+  },
+  {
+    category: "Awards",
+    items: [
+      "Performance Excellence Award (cash) — leading CRM migration & ETL modernization.",
+      "Spirit of LatentView — Business Impact (Jul–Sep 2021).",
+      "Encore Award (Apr–Jun 2020, Oct–Dec 2022) and Spotlight Award (Sep 2019).",
+    ],
   },
 ];
